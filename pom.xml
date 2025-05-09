@@ -33,7 +33,41 @@
     <dependency>
       <groupId>ch.qos.logback</groupId>
       <artifactId>logback-classic</artifactId>
-      <version>1.4.14</version>
+      <version>1.5.13</version>
     </dependency>
   </dependencies>
+  <profiles>
+    <profile>
+      <id>smoke</id>
+      <build>
+        <pluginManagement>
+          <plugins>
+            <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-surefire-plugin</artifactId>
+              <version>3.0.0</version>
+              <configuration>
+                <suiteXmlFiles>
+                  <suiteXmlFile>testng_smoke.xml</suiteXmlFile>
+                </suiteXmlFiles>
+              </configuration>
+            </plugin>
+          </plugins>
+        </pluginManagement>
+      </build>
+    </profile>
+
+  </profiles>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>19</source>
+          <target>19</target>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
 </project>
